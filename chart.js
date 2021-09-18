@@ -102,8 +102,30 @@ function buildCharts(sample) {
   // Use Plotly to plot the data with the layout. 
   Plotly.newPlot("bar", barData, barLayout);
 
-  });
-  }
+  var bubbleData = [
+    {
+      x: ids,
+      y: sample_values,
+      text:labels,
+      mode:"markers",
+      marker:{color:ids,
+      size:sample_values,
+      colorscale:"Earth"
+    } 
+          }
+      ];
+    // Create the layout for the bubble chart.
+    var layout = {
+        title: 'Bacteria Cultures Per Sample',
+        showlegend: false,
+        hovermode: 'closest'
+    };
+
+    //Use Plotly to plot the data with the layout.
+      Plotly.newPlot("bubble",bubbleData,layout)
+    });
+    }
+  
 
 
  
